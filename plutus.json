@@ -1,0 +1,88 @@
+{
+  "preamble": {
+    "title": "aiken/transaction",
+    "description": "Aiken contracts for project 'aiken/transaction'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.7+unknown"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "transaction.trans.spend",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/transaction~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/transaction~1Redeemer"
+        }
+      },
+      "compiledCode": "59011001010032323232323225333002323232323253330073370e900118041baa0011323322533300a3370e900018059baa00513232533300f30110021533300c3370e900018069baa00313232323253330103371e6eb8c00cc048dd5005a450b48656c6c6f20576f726c640015333010001100214a02940cc88c8cc00400400c894ccc05800452809991299980a99b8f00200514a22660080080026eb8c05c004c060004dd6180118089baa00b375c602600666e1cdd6980918098012403046024002601c6ea8c040c038dd50018b0b1bae300f001300c375400a2c60180026018601a00260126ea800458c028c02c00cc024008c020008c020004c010dd50008a4c26cacae6955ceaab9e5573eae855d101",
+      "hash": "0c25ed0984c83310ba64ec45056c196224d66a2720803d2ff4f75d76"
+    },
+    {
+      "title": "transaction.trans.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "59011001010032323232323225333002323232323253330073370e900118041baa0011323322533300a3370e900018059baa00513232533300f30110021533300c3370e900018069baa00313232323253330103371e6eb8c00cc048dd5005a450b48656c6c6f20576f726c640015333010001100214a02940cc88c8cc00400400c894ccc05800452809991299980a99b8f00200514a22660080080026eb8c05c004c060004dd6180118089baa00b375c602600666e1cdd6980918098012403046024002601c6ea8c040c038dd50018b0b1bae300f001300c375400a2c60180026018601a00260126ea800458c028c02c00cc024008c020008c020004c010dd50008a4c26cacae6955ceaab9e5573eae855d101",
+      "hash": "0c25ed0984c83310ba64ec45056c196224d66a2720803d2ff4f75d76"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "VerificationKeyHash": {
+      "title": "VerificationKeyHash",
+      "dataType": "bytes"
+    },
+    "transaction/Datum": {
+      "title": "Datum",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "owner",
+              "$ref": "#/definitions/VerificationKeyHash"
+            },
+            {
+              "title": "money",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "transaction/Redeemer": {
+      "title": "Redeemer",
+      "anyOf": [
+        {
+          "title": "Redeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "message",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
